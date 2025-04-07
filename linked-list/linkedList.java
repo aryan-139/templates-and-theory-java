@@ -27,6 +27,24 @@ class linkedList {
         //2. insertion at the beginning of the linked list
         head= insertOneInBeginning(head, -1);
 
+        //3. find the length of the linked list
+        lengthOfLinkedList(head); 
+        //4. find the middle of the linked list
+        //5. find the kth node from the end of the linked list
+        //6. find the kth node from the beginning of the linked list
+        //7. delete the kth node from the end of the linked list
+        //8. delete the kth node from the beginning of the linked list
+        //9. delete the head
+        //10. delete the tail
+        //11. use fast and slow pointer to find the middle of the linked list
+        //12. detect cycle in a linked list
+        //13. reverse the linked list
+        //14. reverse the linked list in groups of k
+        //15. rotate the linked list by k nodes
+        //16. merge two sorted linked lists
+        //17. partitioning a linked list 
+        //18. LRU cache implementation using linked list
+
         // print the linked list
         printLinkedList(head);
     }
@@ -74,5 +92,16 @@ class linkedList {
         newNode.next=head;
         head=newNode;
         return head;
+    }
+
+    // 3. helper function to find the length of the linked list
+    public static void lengthOfLinkedList(Node head){
+        int count=0;
+        Node current=head;
+        while(current!=null){
+            count++;
+            current= current.next;
+        }
+        System.out.println("Length of the linked list is: "+count);
     }
 }
