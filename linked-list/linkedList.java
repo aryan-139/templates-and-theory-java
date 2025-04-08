@@ -23,6 +23,9 @@ class linkedList {
         int data = 24; 
         head= insertOneAtEnd(head, data);
         head= insertOneAtEnd(head, 25);
+        head= insertOneAtEnd(head, 26);
+        head= insertOneAtEnd(head, 27);
+        head= insertOneAtEnd(head, 28);
 
         //2. insertion at the beginning of the linked list
         head= insertOneInBeginning(head, -1);
@@ -30,9 +33,12 @@ class linkedList {
         //3. find the length of the linked list
         lengthOfLinkedList(head); 
         //4. find the middle of the linked list
+       middleOfLinkedList(head);
         //5. find the kth node from the end of the linked list
-        //6. find the kth node from the beginning of the linked list
+        kthNodeFromEnd(head, 2);
+        //6. find the kth node from the beginning of the linked list-[SKIPPING]
         //7. delete the kth node from the end of the linked list
+        //head= deleteKthNodeFromEnd(head, 2);
         //8. delete the kth node from the beginning of the linked list
         //9. delete the head
         //10. delete the tail
@@ -104,4 +110,43 @@ class linkedList {
         }
         System.out.println("Length of the linked list is: "+count);
     }
+    //4. helper function to find the middle of the linked list
+    public static void middleOfLinkedList(Node head){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println("Middle of the linked list is: "+slow.data);
+    }
+    //5. helper function to find the kth node from the end of the linked list- traversal kind of problem
+    public static void kthNodeFromEnd(Node head, int k){
+        Node current=head;
+        int length=0;
+        while(current!=null){
+            length++;
+            current=current.next;
+        }
+        int value= length-k-1;
+        System.out.println("The length of the linked list is: "+ length + " and the kth node from the end is: "+value);
+        current=head;
+        for(int i=0;i<length; i++){
+            if(i==value){
+                System.out.println("The kth node from the end of the linked list is: "+current.data);
+            }
+            current=current.next;
+        }
+    }
+    // 7. helper function to delete the kth node from the end of the linked list
+    // public static Node deleteKthNodeFromEnd(Node head, int value){
+    //     int length=0;
+    //     Node current= head;
+    //     while(current!=null){
+    //         length++;
+    //         current=current.next;
+    //     }
+    //     return current;
+
+    // }
 }
